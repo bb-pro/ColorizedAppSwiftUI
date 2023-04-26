@@ -13,6 +13,11 @@ struct ContentView: View {
     @State private var redValue = Double.random(in: 0...255)
     @State private var greenValue = Double.random(in: 0...255)
     @State private var blueValue = Double.random(in: 0...255)
+    @State private var redTF = ""
+    @State private var greenTF = ""
+    @State private var blueTF = ""
+    
+    
     
     
     var body: some View {
@@ -27,9 +32,26 @@ struct ContentView: View {
                     blue: blueValue / 255
                 )
                 )
-            ColorSliderView(sliderColor: .red, value: $redValue)
-            ColorSliderView(sliderColor: .green, value: $greenValue)
-            ColorSliderView(sliderColor: .blue, value: $blueValue)
+            
+           
+            HStack {
+                ColorSliderView(sliderColor: .red, value: $redValue)
+                TextField("", text: $redTF)
+                    .frame(width: 30)
+                    .textFieldStyle(.roundedBorder)
+            }
+            HStack {
+                ColorSliderView(sliderColor: .green, value: $greenValue)
+                TextField("", text: $greenTF)
+                    .frame(width: 30)
+                    .textFieldStyle(.roundedBorder)
+            }
+            HStack {
+                ColorSliderView(sliderColor: .blue, value: $blueValue)
+                TextField("", text: $blueTF)
+                    .frame(width: 30)
+                    .textFieldStyle(.roundedBorder)
+            }
             Spacer()
         }
         .padding()
@@ -54,3 +76,5 @@ struct ColorSliderView: View {
         }
     }
 }
+
+
