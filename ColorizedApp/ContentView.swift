@@ -17,9 +17,6 @@ struct ContentView: View {
     @State private var greenTF = ""
     @State private var blueTF = ""
     
-    
-    
-    
     var body: some View {
         VStack {
             Text("Colorized App")
